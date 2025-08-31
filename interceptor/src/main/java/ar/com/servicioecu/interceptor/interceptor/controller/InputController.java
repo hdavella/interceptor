@@ -24,6 +24,16 @@ public class InputController {
     }
     @GetMapping("/greeting")
     public Map<String, String> greeting(){
+        String s1 = new String("Hello");
+        String s2 = new String("Hello");
+        System.out.println(s1 == s2);
+        System.out.println(s1);
+        System.out.println(s2);
+        String s3 = new String("Hello");
+        String s4 = new String("Hello");
+        System.out.println(s3.equals(s4));
+        System.out.println(s3);
+        System.out.println(s4);
         return Collections.singletonMap("message", "Hello World");
     }
  
