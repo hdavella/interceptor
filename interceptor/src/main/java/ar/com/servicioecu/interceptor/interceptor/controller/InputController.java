@@ -20,12 +20,12 @@ public class InputController {
     @Autowired
     private Greeting greetingService;
 
-    @GetMapping("/test")
-    public Map<String, String> test(){
+    @GetMapping("/testinterceptor")
+    public Map<String, String> testinterceptor(){
         return Collections.singletonMap("message", "handler del controlador");
     }
     @GetMapping("/greeting")
-    public Map<String, String> greeting(){
+    public ResponseEntity<?>  greeting() throws Exception{
         String s1 = new String("Hello");
         String s2 = new String("Hello");
         System.out.println(s1 == s2);
@@ -36,7 +36,7 @@ public class InputController {
         System.out.println(s3.equals(s4));
         System.out.println(s3);
         System.out.println(s4);
-        return Collections.singletonMap("message", "Hello World");
+        return ResponseEntity.ok(Collections.singletonMap("Saludo",greetingService.sayHello("Hernan", "Hello World")));
     }
 
     @GetMapping("/greetingtoo")
